@@ -39,6 +39,7 @@ public class AddNewPatient extends JFrame {
 	private JLabel lblSocialSecurityNumber;
 	private JTextField textField_14;
 	private JLabel lblInsurance;
+	private JButton btnAdd;
 	
 	
 	
@@ -67,7 +68,7 @@ public class AddNewPatient extends JFrame {
 		
 		
 		setBackground(Color.WHITE);
-		setTitle("New Patient");
+		setTitle(" Add New Patient");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(200, 200, 465, 713);
 		contentPane = new JPanel();
