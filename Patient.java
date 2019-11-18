@@ -27,7 +27,7 @@ public class Patient extends JFrame {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
+	public static void NewScreen() {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -55,12 +55,18 @@ public class Patient extends JFrame {
 		JButton btnNewButton = new JButton("Add New Patients");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
+				AddNewPatient nw = new AddNewPatient();
+				nw.NewScreen();
 			}
 		});
 		
 		JButton btnViewEditPatients = new JButton("View/ Edit Patients ");
 		btnViewEditPatients.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
+				
+			
 			}
 		});
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);

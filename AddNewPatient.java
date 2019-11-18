@@ -12,8 +12,16 @@ import javax.swing.JTextField;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.JLabel;
 import java.awt.Color;
+import java.awt.Container;
+import java.awt.Font;
+import javax.swing.SwingConstants;
 
 public class AddNewPatient extends JFrame {
+	
+	public static String USERNAME = new String("endalk");
+    public static String PASSWORD = new String("1234qwer");
+	public static String DB_URL = new String("jdbc:mysql://localhost/test?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC");
+	public static String JDBC_DRIVER = new String("com.mysql.jdbc.Driver");
 
 	private JPanel contentPane;
 	private JTextField textField;
@@ -39,8 +47,7 @@ public class AddNewPatient extends JFrame {
 	private JLabel lblSocialSecurityNumber;
 	private JTextField textField_14;
 	private JLabel lblInsurance;
-	private JButton btnAdd;
-	
+	private  JButton btnAdd; 
 	
 	
 	
@@ -48,7 +55,7 @@ public class AddNewPatient extends JFrame {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
+	public static void NewScreen() {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -68,13 +75,22 @@ public class AddNewPatient extends JFrame {
 		
 		
 		setBackground(Color.WHITE);
-		setTitle(" Add New Patient");
+		setTitle(" New Patient");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(200, 200, 465, 713);
 		contentPane = new JPanel();
 		contentPane.setBackground(Color.WHITE);
 		contentPane.setBorder(new EmptyBorder(10, 10, 10, 10));
 		setContentPane(contentPane);
+		 
+		JButton b = new JButton ("Submit");
+		b.setForeground(Color.RED);
+		b.setFont(new Font("Lucida Grande", Font.BOLD, 13));
+		b.setBackground(Color.BLUE);
+		b.setBounds(244, 550, 79, 40);
+		getContentPane().add(b);
+		
+	
 		
 		textField = new JTextField();
 		textField.setBounds(193, 6, 130, 26);

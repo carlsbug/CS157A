@@ -5,6 +5,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.BevelBorder;
+import javax.swing.AbstractButton;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -49,25 +50,51 @@ public class eTRT extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JButton btnPatients = new JButton("Patients");
-		btnPatients.setBounds(33, 138, 51, -70);
-		contentPane.add(btnPatients);
+	
+	
+		
 		
 		JButton btnPatients_1 = new JButton("Patients");
+		btnPatients_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Patient nw= new Patient();
+				nw.NewScreen();
+			}
+		});
 		btnPatients_1.setBounds(33, 50, 158, 72);
 		contentPane.add(btnPatients_1);
 		
+		
+		
 		JButton btnVisits = new JButton("Visits");
+		btnVisits.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				VisitsScreen nw= new VisitsScreen();
+				nw.NewScreen1();
+			}
+		});
 		btnVisits.setBounds(241, 50, 158, 72);
 		contentPane.add(btnVisits);
 		
 		JButton btnAnalytics = new JButton("Analytics");
+		btnAnalytics.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				Demographics nw= new Demographics();
+				nw.NewScreen3();
+			}
+		});
 		btnAnalytics.setBounds(33, 152, 145, 60);
 		contentPane.add(btnAnalytics);
 		
-		JButton btnNewButton = new JButton("Other");
+		JButton btnNewButton = new JButton("Others");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
+				Location nw= new Location();
+				nw.NewScreen2();
+				
+				
 			}
 		});
 		btnNewButton.setBounds(241, 152, 165, 60);

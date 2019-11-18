@@ -11,16 +11,22 @@ import javax.swing.JLabel;
 import javax.swing.LayoutStyle.ComponentPlacement;
 
 public class Demographics extends JFrame {
+	
+	public static String USERNAME = new String("endalk");
+    public static String PASSWORD = new String("1234qwer");
+	public static String DB_URL = new String("jdbc:mysql://localhost/test?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC");
+	public static String JDBC_DRIVER = new String("com.mysql.jdbc.Driver");
 
 	private JPanel contentPane;
 	private JTextField textField;
 	private JTextField textField_1;
 	private JTextField textField_2;
+	
 
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
+	public static void NewScreen3() {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
