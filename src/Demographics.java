@@ -12,10 +12,10 @@ import javax.swing.LayoutStyle.ComponentPlacement;
 
 public class Demographics extends JFrame {
 	
-	public static String USERNAME = new String("endalk");
-    public static String PASSWORD = new String("1234qwer");
-	public static String DB_URL = new String("jdbc:mysql://localhost/test?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC");
-	public static String JDBC_DRIVER = new String("com.mysql.jdbc.Driver");
+//	public static String USERNAME = new String("endalk");
+//    public static String PASSWORD = new String("1234qwer");
+//	public static String DB_URL = new String("jdbc:mysql://localhost/test?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC");
+//	public static String JDBC_DRIVER = new String("com.mysql.jdbc.Driver");
 
 	private JPanel contentPane;
 	private JTextField textField;

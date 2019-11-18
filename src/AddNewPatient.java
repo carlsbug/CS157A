@@ -18,10 +18,10 @@ import javax.swing.SwingConstants;
 
 public class AddNewPatient extends JFrame {
 	
-	public static String USERNAME = new String("endalk");
-    public static String PASSWORD = new String("1234qwer");
-	public static String DB_URL = new String("jdbc:mysql://localhost/test?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC");
-	public static String JDBC_DRIVER = new String("com.mysql.jdbc.Driver");
+//	public static String USERNAME = new String("endalk");
+//    public static String PASSWORD = new String("1234qwer");
+//	public static String DB_URL = new String("jdbc:mysql://localhost/test?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC");
+//	public static String JDBC_DRIVER = new String("com.mysql.jdbc.Driver");
 
 	private JPanel contentPane;
 	private JTextField textField;
@@ -126,7 +126,7 @@ public class AddNewPatient extends JFrame {
 		JLabel lblFirstName = new JLabel("First Name ");
 		lblFirstName.setBounds(92, 11, 72, 16);
 		
-		JLabel lblMiddleNameoptional = new JLabel("Middle Name (Optional)");
+		JLabel lblMiddleNameoptional = new JLabel("Middle Name  [Optional]");
 		lblMiddleNameoptional.setBounds(13, 49, 148, 16);
 		
 		JLabel lblLastName = new JLabel("Last Name ");
@@ -141,7 +141,7 @@ public class AddNewPatient extends JFrame {
 		JLabel lblPhone = new JLabel("Phone");
 		lblPhone.setBounds(127, 185, 38, 16);
 		
-		JLabel lblEmail = new JLabel("E-mail (Optional)");
+		JLabel lblEmail = new JLabel("E-mail  [Optional]");
 		lblEmail.setBounds(69, 223, 108, 16);
 		contentPane.setLayout(null);
 		contentPane.add(lblMiddleNameoptional);
@@ -187,7 +187,7 @@ public class AddNewPatient extends JFrame {
 		lblCity.setBounds(117, 306, 44, 16);
 		contentPane.add(lblCity);
 		
-		lblS = new JLabel("State(Optional)");
+		lblS = new JLabel("State [Optional]");
 		lblS.setBounds(69, 340, 108, 16);
 		contentPane.add(lblS);
 		
@@ -209,7 +209,7 @@ public class AddNewPatient extends JFrame {
 		textField_12.setBounds(193, 429, 130, 26);
 		contentPane.add(textField_12);
 		
-		lblPhoto = new JLabel("Photo");
+		lblPhoto = new JLabel("Photo [Optional]");
 		lblPhoto.setBounds(117, 434, 63, 16);
 		contentPane.add(lblPhoto);
 		
@@ -218,7 +218,7 @@ public class AddNewPatient extends JFrame {
 		textField_13.setBounds(193, 457, 176, 26);
 		contentPane.add(textField_13);
 		
-		lblSocialSecurityNumber = new JLabel("Social Security Number");
+		lblSocialSecurityNumber = new JLabel("Social Security Number [Optional]");
 		lblSocialSecurityNumber.setBounds(13, 462, 176, 16);
 		contentPane.add(lblSocialSecurityNumber);
 		
@@ -227,7 +227,7 @@ public class AddNewPatient extends JFrame {
 		textField_14.setBounds(193, 485, 130, 26);
 		contentPane.add(textField_14);
 		
-		lblInsurance = new JLabel("Insurance");
+		lblInsurance = new JLabel("Insurance [Optional]");
 		lblInsurance.setBounds(60, 490, 63, 16);
 		contentPane.add(lblInsurance);
 				

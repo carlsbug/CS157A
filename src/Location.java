@@ -17,10 +17,10 @@ public class Location extends JFrame {
 	private JTextField textField_1;
 	private JTextField textField_2;
 	
-	public static String USERNAME = new String("endalk");
-    public static String PASSWORD = new String("1234qwer");
-	public static String DB_URL = new String("jdbc:mysql://localhost/test?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC");
-	public static String JDBC_DRIVER = new String("com.mysql.jdbc.Driver");
+//	public static String USERNAME = new String("endalk");
+//    public static String PASSWORD = new String("1234qwer");
+//	public static String DB_URL = new String("jdbc:mysql://localhost/test?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC");
+//	public static String JDBC_DRIVER = new String("com.mysql.jdbc.Driver");
 
 
 	/**
