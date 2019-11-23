@@ -50,10 +50,6 @@ public class eTRT extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-	
-	
-		
-		
 		JButton btnPatients_1 = new JButton("Patients");
 		btnPatients_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
