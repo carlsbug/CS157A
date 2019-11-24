@@ -24,13 +24,13 @@ CREATE TABLE REF_Zip(
 );
 
 create table Patient(
-	THC varchar(6) AUTO_INCREMENT PRIMARY KEY,
-	Country_ID SMALLINT, #if not null, mandatory?
-    State_ID SMALLINT, #it's null so optional, isn't it?
-    ZIP_ID SMALLINT, # or maybe we dont constraint foreign key here
-    WStatus_ID SMALLINT, #cuz anyways, they are primary key in its table
-    Occup_ID SMALLINT, #F
-    Surname VARCHAR(25), # Below here, those are all optional on the picture...
+	THC varchar(6)  PRIMARY KEY,
+	Country_ID SMALLINT, 
+    State_ID SMALLINT, 
+    ZIP_ID SMALLINT, 
+    WStatus_ID SMALLINT,
+    Occup_ID SMALLINT, 
+    Surname VARCHAR(25), 
     First_name VARCHAR(15),
     SSN VARCHAR(10),
     DOB DATE,
@@ -39,16 +39,12 @@ create table Patient(
     H_Background CHAR(1),
     Tin_WHEN DATE,
     H_when DATE,
-    T_Ind_comments VARCHAR(65535),
-    H_Ind_comments VARCHAR(65535),
+    T_Ind_comments VARCHAR(10000),
+    H_Ind_comments VARCHAR(10000),
     
-    FOREIGN KEY(Country_ID) REFERENCES REF_Country(Country_ID),
-    FOREIGN KEY(State_ID) REFERENCES REF_Status(State_ID),
-    FOREIGN KEY(ZIP_ID) REFERENCES REF_Zip(ZIP_ID),
-    FOREIGN KEY(WStatus_ID) REFERENCES REF_Works(WStatus_ID),
-    FOREIGN KEY(Occup_ID) REFERENCES REF_Occupation(Occup_ID)
+    FOREIGN KEY(Country_ID) REFERENCES REF_Country(Country_ID)ON UPDATE CASCADE
+        ON DELETE CASCADE
 );
-
 
 
 
