@@ -2,6 +2,7 @@
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import javax.swing.GroupLayout;
 import javax.swing.JButton;
@@ -35,19 +36,21 @@ public class AddNewPatient extends JFrame {
 	private JTextField textField_8;
 	private JTextField textField_9;
 	private JTextField textField_10;
+	private JTextField textField_11;
+	private JTextField textField_12;
+	private JTextField textField_13;
+	private JTextField textField_14;
 	private JLabel lblStreetA;
 	private JLabel lblCity;
 	private JLabel lblS;
 	private JLabel lblZip;
-	private JTextField textField_11;
 	private JLabel lblCountry;
-	private JTextField textField_12;
 	private JLabel lblPhoto;
-	private JTextField textField_13;
 	private JLabel lblSocialSecurityNumber;
-	private JTextField textField_14;
 	private JLabel lblInsurance;
-	private  JButton btnAdd; 
+	private JButton btnAdd;
+	private ArrayList<Patient> Patients;
+
 	
 	
 	
@@ -73,7 +76,7 @@ public class AddNewPatient extends JFrame {
 	 */
 	public AddNewPatient() {
 		
-		
+		Patients = new ArrayList<Patient>();
 		setBackground(Color.WHITE);
 		setTitle(" New Patient");
 		setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
@@ -82,15 +85,85 @@ public class AddNewPatient extends JFrame {
 		contentPane.setBackground(Color.WHITE);
 		contentPane.setBorder(new EmptyBorder(10, 10, 10, 10));
 		setContentPane(contentPane);
-		 
+		Patient p = new Patient();
 		JButton b = new JButton ("Submit");
 		b.setForeground(Color.RED);
 		b.setFont(new Font("Lucida Grande", Font.BOLD, 13));
 		b.setBackground(Color.BLUE);
 		b.setBounds(244, 550, 79, 40);
-		getContentPane().add(b);
+		contentPane.add(b);
+		b.addActionListener(new ActionListener(){
+			   public void actionPerformed(ActionEvent e){
+			      String fName = textField.getText();
+			      String mName = textField_1.getText();
+			      String lName = textField_2.getText();
+			      String dOB = textField_3.getText();
+			      String gender = textField_4.getText();
+			      String phone = textField_5.getText();
+			      String email = textField_6.getText();
+			      String street = textField_7.getText();
+			      String city = textField_8.getText();
+			      String state = textField_9.getText();
+			      String zipCode = textField_10.getText();
+			      String country = textField_11.getText();
+			      String photo = textField_12.getText();
+			      String SSN = textField_13.getText();
+			      String insurance = textField_14.getText();
+			      
+			      p.addPatient(fName,mName,lName,dOB,gender, 
+			    		  phone,email,street,city,state,zipCode,country,photo,SSN,insurance);
+			      
+			      Patients.add(p);
+			      System.out.println(Patients);
+			   }
+			});
 		
-	
+
+		JLabel lblFirstName = new JLabel("First Name ");
+		lblFirstName.setBounds(92, 11, 72, 16);
+		
+		JLabel lblMiddleNameoptional = new JLabel("Middle Name*");
+		lblMiddleNameoptional.setBounds(13, 49, 148, 16);
+		
+		JLabel lblLastName = new JLabel("Last Name ");
+		lblLastName.setBounds(88, 87, 70, 16);
+		
+		JLabel lblDateOfBirth = new JLabel("Date of Birth");
+		lblDateOfBirth.setBounds(98, 120, 79, 16);
+		
+		JLabel lblGender = new JLabel("Gender");
+		lblGender.setBounds(117, 158, 44, 16);
+		
+		JLabel lblPhone = new JLabel("Phone");
+		lblPhone.setBounds(127, 185, 38, 16);
+		
+		JLabel lblEmail = new JLabel("E-mail*");
+		lblEmail.setBounds(69, 223, 108, 16);
+
+		
+		lblStreetA = new JLabel("Street Address");
+		lblStreetA.setBounds(69, 261, 108, 16);
+		
+		lblCity = new JLabel("City");
+		lblCity.setBounds(117, 306, 44, 16);
+		
+		lblS = new JLabel("State [Optional]");
+		lblS.setBounds(69, 340, 108, 16);
+		
+		lblZip = new JLabel("Zip");
+		lblZip.setBounds(117, 368, 44, 16);
+		
+		lblCountry = new JLabel("Country");
+		lblCountry.setBounds(98, 406, 63, 16);
+		
+		lblPhoto = new JLabel("Photo*");
+		lblPhoto.setBounds(117, 434, 63, 16);
+		
+		lblSocialSecurityNumber = new JLabel("Social Security Number*");
+		lblSocialSecurityNumber.setBounds(13, 462, 176, 16);
+		
+		lblInsurance = new JLabel("Insurance*");
+		lblInsurance.setBounds(60, 490, 63, 16);
 		
 		textField = new JTextField();
 		textField.setBounds(193, 6, 130, 26);
@@ -120,29 +193,39 @@ public class AddNewPatient extends JFrame {
 		textField_6.setBounds(193, 218, 130, 26);
 		textField_6.setColumns(10);
 		
+		textField_7 = new JTextField();
+		textField_7.setColumns(10);
+		textField_7.setBounds(193, 256, 130, 26);
+		
+		textField_8 = new JTextField();
+		textField_8.setColumns(10);
+		textField_8.setBounds(193, 294, 130, 26);
+		
+		textField_9 = new JTextField();
+		textField_9.setColumns(10);
+		textField_9.setBounds(193, 332, 130, 26);
+		
+		textField_10 = new JTextField();
+		textField_10.setColumns(10);
+		textField_10.setBounds(193, 370, 130, 26);
+		
+		textField_11 = new JTextField();
+		textField_11.setColumns(10);
+		textField_11.setBounds(193, 401, 130, 26);
+		
+		textField_12 = new JTextField();
+		textField_12.setColumns(10);
+		textField_12.setBounds(193, 429, 130, 26);
+		
+		textField_13 = new JTextField();
+		textField_13.setColumns(10);
+		textField_13.setBounds(193, 457, 176, 26);
 		
 		
-		
-		JLabel lblFirstName = new JLabel("First Name ");
-		lblFirstName.setBounds(92, 11, 72, 16);
-		
-		JLabel lblMiddleNameoptional = new JLabel("Middle Name  [Optional]");
-		lblMiddleNameoptional.setBounds(13, 49, 148, 16);
-		
-		JLabel lblLastName = new JLabel("Last Name ");
-		lblLastName.setBounds(88, 87, 70, 16);
-		
-		JLabel lblDateOfBirth = new JLabel("Date of Birth");
-		lblDateOfBirth.setBounds(98, 120, 79, 16);
-		
-		JLabel lblGender = new JLabel("Gender");
-		lblGender.setBounds(117, 158, 44, 16);
-		
-		JLabel lblPhone = new JLabel("Phone");
-		lblPhone.setBounds(127, 185, 38, 16);
-		
-		JLabel lblEmail = new JLabel("E-mail  [Optional]");
-		lblEmail.setBounds(69, 223, 108, 16);
+		textField_14 = new JTextField();
+		textField_14.setColumns(10);
+		textField_14.setBounds(193, 485, 130, 26);
+
 		contentPane.setLayout(null);
 		contentPane.add(lblMiddleNameoptional);
 		contentPane.add(lblLastName);
@@ -158,78 +241,22 @@ public class AddNewPatient extends JFrame {
 		contentPane.add(textField_6);
 		contentPane.add(textField);
 		contentPane.add(textField_5);
-		
-		textField_7 = new JTextField();
-		textField_7.setColumns(10);
-		textField_7.setBounds(193, 256, 130, 26);
-		contentPane.add(textField_7);
-		
-		textField_8 = new JTextField();
-		textField_8.setColumns(10);
-		textField_8.setBounds(193, 294, 130, 26);
-		contentPane.add(textField_8);
-		
-		textField_9 = new JTextField();
-		textField_9.setColumns(10);
-		textField_9.setBounds(193, 332, 130, 26);
-		contentPane.add(textField_9);
-		
-		textField_10 = new JTextField();
-		textField_10.setColumns(10);
-		textField_10.setBounds(193, 370, 130, 26);
-		contentPane.add(textField_10);
-		
-		lblStreetA = new JLabel("Street Address");
-		lblStreetA.setBounds(69, 261, 108, 16);
-		contentPane.add(lblStreetA);
-		
-		lblCity = new JLabel("City");
-		lblCity.setBounds(117, 306, 44, 16);
-		contentPane.add(lblCity);
-		
-		lblS = new JLabel("State [Optional]");
-		lblS.setBounds(69, 340, 108, 16);
-		contentPane.add(lblS);
-		
-		lblZip = new JLabel("Zip");
-		lblZip.setBounds(117, 368, 44, 16);
-		contentPane.add(lblZip);
-		
-		textField_11 = new JTextField();
-		textField_11.setColumns(10);
-		textField_11.setBounds(193, 401, 130, 26);
-		contentPane.add(textField_11);
-		
-		lblCountry = new JLabel("Country");
-		lblCountry.setBounds(98, 406, 63, 16);
-		contentPane.add(lblCountry);
-		
-		textField_12 = new JTextField();
-		textField_12.setColumns(10);
-		textField_12.setBounds(193, 429, 130, 26);
-		contentPane.add(textField_12);
-		
-		lblPhoto = new JLabel("Photo [Optional]");
-		lblPhoto.setBounds(117, 434, 63, 16);
-		contentPane.add(lblPhoto);
-		
-		textField_13 = new JTextField();
-		textField_13.setColumns(10);
-		textField_13.setBounds(193, 457, 176, 26);
-		contentPane.add(textField_13);
-		
-		lblSocialSecurityNumber = new JLabel("Social Security Number [Optional]");
-		lblSocialSecurityNumber.setBounds(13, 462, 176, 16);
-		contentPane.add(lblSocialSecurityNumber);
-		
-		textField_14 = new JTextField();
-		textField_14.setColumns(10);
-		textField_14.setBounds(193, 485, 130, 26);
-		contentPane.add(textField_14);
-		
-		lblInsurance = new JLabel("Insurance [Optional]");
-		lblInsurance.setBounds(60, 490, 63, 16);
 		contentPane.add(lblInsurance);
+		contentPane.add(textField_14);
+		contentPane.add(lblS);
+		contentPane.add(lblZip);
+		contentPane.add(textField_11);
+		contentPane.add(lblCountry);
+		contentPane.add(textField_12);
+		contentPane.add(lblPhoto);
+		contentPane.add(textField_13);
+		contentPane.add(lblSocialSecurityNumber);
+		contentPane.add(lblCity);
+		contentPane.add(lblStreetA);
+		contentPane.add(textField_10);
+		contentPane.add(textField_7);
+		contentPane.add(textField_8);
+		contentPane.add(textField_9);
 				
 	}
 			
