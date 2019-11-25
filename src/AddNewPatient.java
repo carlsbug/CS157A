@@ -49,7 +49,8 @@ public class AddNewPatient extends JFrame {
 	private JLabel lblSocialSecurityNumber;
 	private JLabel lblInsurance;
 	private JButton btnAdd;
-	private ArrayList<Patient> Patients;
+	private Patient[] Patients = new Patient[100];
+	int i = 0;
 
 	
 	
@@ -76,7 +77,7 @@ public class AddNewPatient extends JFrame {
 	 */
 	public AddNewPatient() {
 		
-		Patients = new ArrayList<Patient>();
+		
 		setBackground(Color.WHITE);
 		setTitle(" New Patient");
 		setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
@@ -113,8 +114,8 @@ public class AddNewPatient extends JFrame {
 			      p.addPatient(fName,mName,lName,dOB,gender, 
 			    		  phone,email,street,city,state,zipCode,country,photo,SSN,insurance);
 			      
-			      Patients.add(p);
-			      System.out.println(Patients);
+			      Patients[i] = p;
+			      System.out.println(Patients[i].getFName() + " added ");
 			   }
 			});
 		

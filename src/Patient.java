@@ -45,5 +45,8 @@ public class Patient {
 		this.insurance = insurance;
 		
 	}
+	public String getFName() {
+		return this.firstName;
+	}
 	
 }
