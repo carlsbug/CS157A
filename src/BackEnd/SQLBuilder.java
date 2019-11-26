@@ -1,12 +1,12 @@
-package FrontEnd;
-
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.Statement;
+package BackEnd;
+/*
+ * Build a relation
+ */
 import java.sql.*;
 
-public class builder {
+
+public class SQLBuilder
+{
 	public static String USERNAME = new String("keon");
 	public static String PASSWORD = new String("7eu6Y.La=VJh");
 	
