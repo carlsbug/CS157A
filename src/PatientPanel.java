@@ -64,7 +64,7 @@ public class PatientPanel extends JFrame {
 		JButton btnViewEditPatients = new JButton("View/ Edit Patients ");
 		btnViewEditPatients.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				 
+				
 				
 			
 			}
