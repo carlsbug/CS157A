@@ -180,7 +180,7 @@ public class AddNewPatient extends JFrame {
 				    	   
 				       	p.addPatient(fName,mName,lName,dOB,gender, 
 					    phone,email,street,city,state,zipCode,country,photo,SSN,insurance);
-				       
+				         
 					   Patients[i] = p;
 					   System.out.println(Patients[i].getFName() + " added ");
 				       }else {
