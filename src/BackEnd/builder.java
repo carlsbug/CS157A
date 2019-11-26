@@ -9,15 +9,28 @@ import java.sql.*;
 public class builder {
 	public static String USERNAME = new String("keon");
 	public static String PASSWORD = new String("7eu6Y.La=VJh");
-	
-//	public static String DB_URL = new String("jdbc:mysql://localhost/test?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC");
+
+	//	public static String DB_URL = new String("jdbc:mysql://localhost/test?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC");
 	public static String DB_URL = new String("jdbc:mysql://localhost:3306/test");
 	public static String JDBC_DRIVER = new String("com.mysql.cj.jdbc.Driver");
+
 	
-	static String[]	Tables = {
-			"create table STATE (" +
-					"Name varchar(25) not null" + ")"
+	static String[] Tables = {
+			"CREATE TABLE REF_Occupation("+
+					"Occup_ID SMALLINT not null,"+
+				    "Name VARCHAR(25),"+
+				    "PRIMARY KEY(Occup_ID));",
+	
+				    "CREATE TABLE REF_Works("+
+							"WStatus_ID SMALLINT not null,"+
+						    "Name VARCHAR(25),"+
+						    "PRIMARY KEY(WStatus_ID));"
+				    
 	};
+	static String[] REF_Works = {
+			
+	};
+	
 	static String[]	dropTables = {
 			"drop table STATE"
 	};
@@ -45,21 +58,27 @@ public class builder {
 			Statement stmt = con.createStatement();
 
 			// Submit the statement
-			for (int i=0; i<Tables.length; ++i)
-			{
-				System.out.print(Tables[i] + "...");
-				int rowsAffected = stmt.executeUpdate(Tables[i]);
-				if (rowsAffected == 0)	// DDL statements return rowcount of 0
-					System.out.println("OK");
-			}
-			// Drop the Table
-//			for (int i=0; i<dropTables.length; ++i)
+			//!!!!!
+//			for(int j = 0; j < 2; j++)
 //			{
-//				System.out.print(dropTables[i] + "...");
-//				int rowsAffected = stmt.executeUpdate(dropTables[i]);
-//				if (rowsAffected == 0)	// DDL statements return rowcount of 0
-//					System.out.println("OK");
+//			System.out.println("hello:" + Tables[0]);
+				for (int i=0; i<2; i++)
+				{
+					System.out.print(Tables[i] + "...");
+					int rowsAffected = stmt.executeUpdate(Tables[i]);
+					if (rowsAffected == 0)	// DDL statements return rowcount of 0
+						System.out.println("OK");
+				}
 //			}
+
+			// Drop the Table
+			//			for (int i=0; i<dropTables.length; ++i)
+			//			{
+			//				System.out.print(dropTables[i] + "...");
+			//				int rowsAffected = stmt.executeUpdate(dropTables[i]);
+			//				if (rowsAffected == 0)	// DDL statements return rowcount of 0
+			//					System.out.println("OK");
+			//			}
 
 			// Close the statement
 			stmt.close();
