@@ -13,7 +13,7 @@ public class builder {
 	//	public static String DB_URL = new String("jdbc:mysql://localhost/test?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC");
 	public static String DB_URL = new String("jdbc:mysql://localhost:3306/test");
 	public static String JDBC_DRIVER = new String("com.mysql.cj.jdbc.Driver");
-
+  
 	
 	static String[] Tables = {
 			"CREATE TABLE REF_Occupation("+
