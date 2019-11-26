@@ -51,6 +51,34 @@ public class AddNewPatient extends JFrame {
 	private JButton btnAdd;
 	private Patient[] Patients = new Patient[100];
 	int i = 0;
+	
+	public boolean flagCheckString(String s) {
+		boolean flag = true;
+		char[] c = s.toCharArray();
+		
+		for (int i = 0; i < c.length; i++) {
+			if (Character.isDigit(c[i])) {
+				flag = false;
+				return flag;
+			}
+		}
+		return flag;
+		
+	}
+	
+	public boolean flagCheckInt(String s) {
+		boolean flag = true;
+		char[] c = s.toCharArray();
+		
+		for (int i = 0; i < c.length; i++) {
+			if (Character.isDigit(c[i]) == false) {
+				flag = false;
+				return flag;
+			}
+		}
+		return flag;
+		
+	}
 
 	
 	
@@ -86,38 +114,89 @@ public class AddNewPatient extends JFrame {
 		contentPane.setBackground(Color.WHITE);
 		contentPane.setBorder(new EmptyBorder(10, 10, 10, 10));
 		setContentPane(contentPane);
-		Patient p = new Patient();
+		
 		JButton b = new JButton ("Submit");
 		b.setForeground(Color.RED);
 		b.setFont(new Font("Lucida Grande", Font.BOLD, 13));
 		b.setBackground(Color.BLUE);
 		b.setBounds(244, 550, 79, 40);
 		contentPane.add(b);
+		
 		b.addActionListener(new ActionListener(){
 			   public void actionPerformed(ActionEvent e){
-			      String fName = textField.getText();
-			      String mName = textField_1.getText();
-			      String lName = textField_2.getText();
-			      String dOB = textField_3.getText();
-			      String gender = textField_4.getText();
-			      String phone = textField_5.getText();
-			      String email = textField_6.getText();
-			      String street = textField_7.getText();
-			      String city = textField_8.getText();
-			      String state = textField_9.getText();
-			      String zipCode = textField_10.getText();
-			      String country = textField_11.getText();
-			      String photo = textField_12.getText();
-			      String SSN = textField_13.getText();
-			      String insurance = textField_14.getText();
+				   String fName = "NULL";;
+				   String mName = "NULL";;
+				   String lName = "NULL";;
+				   String dOB = "NULL";;
+				   String gender = "NULL";;
+				   String phone = "NULL";;
+				   String email = "NULL";;
+				   String street = "NULL";;
+				   String city = "NULL";;
+				   String state = "NULL";;
+				   String zipCode = "NULL";;
+				   String country = "NULL";;
+				   String photo = "NULL";;
+				   String SSN = "NULL";;
+				   String insurance = "NULL";;
+				   Patient p = new Patient();
+				   
+				  if (flagCheckString(textField.getText()) == true && 
+				  	  flagCheckString(textField_1.getText()) == true &&
+					  flagCheckString(textField_2.getText()) == true &&
+					  flagCheckInt(textField_3.getText()) == true &&
+					  flagCheckString(textField_4.getText()) == true &&
+					  flagCheckInt(textField_5.getText()) == true && //TextField 6 & 7 can be mix of digits and strings
+					  flagCheckString(textField_8.getText()) == true &&
+					  flagCheckString(textField_9.getText()) == true &&
+					  flagCheckInt(textField_10.getText()) == true &&
+					  flagCheckString(textField_11.getText()) == true &&
+					  flagCheckString(textField_12.getText()) == true &&
+					  flagCheckInt(textField_13.getText()) == true &&
+					  flagCheckString(textField_14.getText()) == true)
+					  
+					 
+				  {
+					   fName = textField.getText();
+					   mName = textField_1.getText();
+				       lName = textField_2.getText();
+				       dOB = textField_3.getText();
+				       gender = textField_4.getText();
+				       phone = textField_5.getText();
+				       email = textField_6.getText();
+				       street = textField_7.getText();
+				       city = textField_8.getText();
+				       state = textField_9.getText();
+				       zipCode = textField_10.getText();
+				       country = textField_11.getText();
+				       photo = textField_12.getText();
+				       SSN = textField_13.getText();
+				       insurance = textField_14.getText();
+				       
+				       if (textField.getText() != "" && textField_2.getText() != "" && dOB != "" &&
+				    		   gender != "" && phone != "" && street != "" 
+				    		   && city != "" && zipCode != "" && country != " " && SSN != "")
+				       {
+				    	   
+				       	p.addPatient(fName,mName,lName,dOB,gender, 
+					    phone,email,street,city,state,zipCode,country,photo,SSN,insurance);
+				         
+					   Patients[i] = p;
+					   System.out.println(Patients[i].getFName() + " added ");
+				       }else {
+				    	   System.out.println("Failed: answer all that are not * marked");
+				       }
+				  }else {
+//					  JFrame errorPane;
+//					  errorPane.NewScreen();
+					  System.out.println("Failed: wrong text in a place");
+				  }
+				  
 			      
-			      p.addPatient(fName,mName,lName,dOB,gender, 
-			    		  phone,email,street,city,state,zipCode,country,photo,SSN,insurance);
-			      
-			      Patients[i] = p;
-			      System.out.println(Patients[i].getFName() + " added ");
+			    
 			   }
 			});
+		
 		
 
 		JLabel lblFirstName = new JLabel("First Name ");
@@ -129,7 +208,7 @@ public class AddNewPatient extends JFrame {
 		JLabel lblLastName = new JLabel("Last Name ");
 		lblLastName.setBounds(88, 87, 70, 16);
 		
-		JLabel lblDateOfBirth = new JLabel("Date of Birth");
+		JLabel lblDateOfBirth = new JLabel("Date of Birth ");
 		lblDateOfBirth.setBounds(98, 120, 79, 16);
 		
 		JLabel lblGender = new JLabel("Gender");
@@ -140,7 +219,6 @@ public class AddNewPatient extends JFrame {
 		
 		JLabel lblEmail = new JLabel("E-mail*");
 		lblEmail.setBounds(69, 223, 108, 16);
-
 		
 		lblStreetA = new JLabel("Street Address");
 		lblStreetA.setBounds(69, 261, 108, 16);
@@ -148,7 +226,7 @@ public class AddNewPatient extends JFrame {
 		lblCity = new JLabel("City");
 		lblCity.setBounds(117, 306, 44, 16);
 		
-		lblS = new JLabel("State [Optional]");
+		lblS = new JLabel("State*");
 		lblS.setBounds(69, 340, 108, 16);
 		
 		lblZip = new JLabel("Zip");
