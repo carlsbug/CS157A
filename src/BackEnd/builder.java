@@ -33,6 +33,13 @@ public class builder {
 	
 	static String[]	dropTables = {
 			"drop table STATE"
+//			drop table Patient;
+//			drop table REF_Country;
+//			drop table REF_Occupation;
+//			drop table REF_State;
+//			drop table REF_Works;
+//			drop table REF_Zip;
+//			drop table Visit;			
 	};
 
 	public static void
