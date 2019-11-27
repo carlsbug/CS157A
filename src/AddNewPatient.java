@@ -125,20 +125,22 @@ public class AddNewPatient extends JFrame {
 		b.addActionListener(new ActionListener(){
 			   public void actionPerformed(ActionEvent e){
 				   String fName = "NULL";;
-				   String mName = "NULL";;
-				   String lName = "NULL";;
-				   String dOB = "NULL";;
-				   String gender = "NULL";;
-				   String phone = "NULL";;
-				   String email = "NULL";;
-				   String street = "NULL";;
-				   String city = "NULL";;
-				   String state = "NULL";;
-				   String zipCode = "NULL";;
-				   String country = "NULL";;
-				   String photo = "NULL";;
-				   String SSN = "NULL";;
-				   String insurance = "NULL";;
+				   String mName = "NULL";
+				   String lName = "NULL";
+				   String dOB = "NULL";
+				   String gender = "NULL";
+				   String phone = "NULL";
+				   String email = "NULL";
+				   String street = "NULL";
+				   String city = "NULL";
+				   String state = "NULL";
+				   String zipCode = "NULL";
+				   String country = "NULL";
+				   String photo = "NULL";
+				   String SSN = "NULL";
+				   String insurance = "NULL";
+		
+			
 				   Patient p = new Patient();
 				   
 				  if (flagCheckString(textField.getText()) == true && 
@@ -172,10 +174,11 @@ public class AddNewPatient extends JFrame {
 				       photo = textField_12.getText();
 				       SSN = textField_13.getText();
 				       insurance = textField_14.getText();
-				       
-				       if (textField.getText() != "" && textField_2.getText() != "" && dOB != "" &&
-				    		   gender != "" && phone != "" && street != "" 
-				    		   && city != "" && zipCode != "" && country != " " && SSN != "")
+
+				       //
+				       if (!fName.equals("") && !lName.equals("") && !dOB.equals("") &&
+				    		   !gender.equals("") && !phone.equals("") && !street.equals("") 
+				    		   && !city.equals("") && !zipCode.equals("") && !country.equals("") && !SSN.equals(""))
 				       {
 				    	   
 				       	p.addPatient(fName,mName,lName,dOB,gender, 
@@ -192,7 +195,6 @@ public class AddNewPatient extends JFrame {
 					  System.out.println("Failed: wrong text in a place");
 				  }
 				  
-			      
 			    
 			   }
 			});
