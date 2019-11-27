@@ -30,23 +30,24 @@ CREATE TABLE REF_Zip(
 
 CREATE TABLE Patient(
 	THC varchar(6) not null,
-	Country_ID SMALLINT not null,
+	CurrentDate DATE,
+	First_name VARCHAR(15),
+	Middle_name VARCHAR(15),
+	Last_name VARCHAR(15) not null,
+	Date_of_Birth DATE not null,
+	Gender VARCHAR(1) not null,
+	Phone INTEGER not null,
+	Email VARCHAR(50),
+	Street_Address VARCHAR(60) not null,
+	City VARCHAR(30) not null,
 	State_ID SMALLINT not null,
 	ZIP_ID SMALLINT not null,
+	Country_ID SMALLINT not null,
+	Photo VARCHAR(1000),
+	Social_Security_Number VARCHAR(10),
+	Insurnace VARCHAR(10),
 	WStatus_ID SMALLINT not null,
 	Occup_ID SMALLINT not null,
-	Surname VARCHAR(25),
-	First_name VARCHAR(15),
-	SSN VARCHAR(10),
-	DOB DATE,
-	Insurance VARCHAR(10),
-	Tin_Background CHAR(1),
-	H_Background CHAR(1),
-	Tin_WHEN DATE,
-	H_when DATE,
-	T_Ind_comments VARCHAR(10000),
-	H_Ind_comments VARCHAR(10000),
-
 
 	CONSTRAINT PK_PATIENT PRIMARY KEY (THC),
 	CONSTRAINT FK_PATIENT_REFERENCE_REF_COUN FOREIGN KEY(Country_ID) REFERENCES REF_Country(Country_ID) ON UPDATE CASCADE
@@ -60,6 +61,8 @@ CREATE TABLE Patient(
 	CONSTRAINT FK_PATIENT_REFERENCE_REF_OCCU FOREIGN KEY(Occup_ID) REFERENCES REF_Occupation(Occup_ID) ON UPDATE CASCADE
 	ON DELETE CASCADE
 );
+
+
 
 CREATE TABLE Visit(
 	Visit_ID INTEGER not null,
