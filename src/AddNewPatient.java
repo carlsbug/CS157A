@@ -566,7 +566,7 @@ public class AddNewPatient extends JFrame {
 					{
 			          	 	SQLUtil.printSQLExceptions(e1);		
 			         }
-					
+					////
 					
 				} //try for Class.forName(JDBC_DRIVER);
 				catch (ClassNotFoundException e1) {
