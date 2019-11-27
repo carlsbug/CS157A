@@ -109,8 +109,7 @@ public class AddNewPatient extends JFrame {
 		contentPane.setBackground(Color.WHITE);
 		contentPane.setBorder(new EmptyBorder(10, 10, 10, 10));
 		setContentPane(contentPane);
-<<<<<<< HEAD
-=======
+
 		
 		JButton b = new JButton ("Submit");
 		b.setForeground(Color.RED);
@@ -118,8 +117,7 @@ public class AddNewPatient extends JFrame {
 		b.setBackground(Color.BLUE);
 		b.setBounds(244, 550, 79, 40);
 		contentPane.add(b);
->>>>>>> branch 'master' of https://github.com/carlsbug/CS157A-Team3-Problem1.git
-		
+
 		b.addActionListener(new ActionListener(){
 			   public void actionPerformed(ActionEvent e){
 				   String fName = "NULL";;
@@ -300,35 +298,12 @@ public class AddNewPatient extends JFrame {
 		textField_13.setColumns(10);
 		textField_13.setBounds(193, 457, 176, 26);
 		
-		
-<<<<<<< HEAD
-		
-		JLabel lblFirstName = new JLabel("First Name ");
-		lblFirstName.setBounds(92, 11, 72, 16);
-		
-		JLabel lblMiddleNameoptional = new JLabel("Middle Name (Optional)");
-		lblMiddleNameoptional.setBounds(13, 49, 148, 16);
-		
-		JLabel lblLastName = new JLabel("Last Name ");
-		lblLastName.setBounds(88, 87, 70, 16);
-		
-		JLabel lblDateOfBirth = new JLabel("Date of Birth");
-		lblDateOfBirth.setBounds(98, 120, 79, 16);
-		
-		JLabel lblGender = new JLabel("Gender");
-		lblGender.setBounds(117, 158, 44, 16);
-		
-		JLabel lblPhone = new JLabel("Phone");
-		lblPhone.setBounds(127, 185, 38, 16);
-		
-		JLabel lblEmail = new JLabel("E-mail (Optional)");
-		lblEmail.setBounds(69, 223, 108, 16);
-=======
+	
+
 		textField_14 = new JTextField();
 		textField_14.setColumns(10);
 		textField_14.setBounds(193, 485, 130, 26);
 
->>>>>>> branch 'master' of https://github.com/carlsbug/CS157A-Team3-Problem1.git
 		contentPane.setLayout(null);
 		contentPane.add(lblMiddleNameoptional);
 		contentPane.add(lblLastName);
@@ -344,7 +319,7 @@ public class AddNewPatient extends JFrame {
 		contentPane.add(textField_6);
 		contentPane.add(textField);
 		contentPane.add(textField_5);
-<<<<<<< HEAD
+
 		
 		textField_7 = new JTextField();
 		textField_7.setColumns(10);
@@ -416,10 +391,9 @@ public class AddNewPatient extends JFrame {
 		
 		lblInsurance = new JLabel("Insurance");
 		lblInsurance.setBounds(60, 490, 63, 16);
-=======
->>>>>>> branch 'master' of https://github.com/carlsbug/CS157A-Team3-Problem1.git
+
 		contentPane.add(lblInsurance);
-<<<<<<< HEAD
+
 		
 		JButton btnNewButton = new JButton("Save");
 		btnNewButton.addActionListener(new ActionListener() {
@@ -438,7 +412,7 @@ public class AddNewPatient extends JFrame {
 		});
 		btnNewButton_1.setBounds(170, 635, 130, 50);
 		contentPane.add(btnNewButton_1);
-=======
+
 		contentPane.add(textField_14);
 		contentPane.add(lblS);
 		contentPane.add(lblZip);
@@ -454,7 +428,7 @@ public class AddNewPatient extends JFrame {
 		contentPane.add(textField_7);
 		contentPane.add(textField_8);
 		contentPane.add(textField_9);
->>>>>>> branch 'master' of https://github.com/carlsbug/CS157A-Team3-Problem1.git
+
 				
 	}
 }
