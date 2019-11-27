@@ -1,3 +1,48 @@
 insert into Patient(THC, Country_ID,State_ID,ZIP_ID,WStatus_ID,Occup_ID,Surname,First_name) values ('a', 0,0,0,0,0,'Min','Keon');
 insert into Patient(THC, Country_ID,State_ID,ZIP_ID,WStatus_ID,Occup_ID,Surname,First_name) values ('b', 0,0,0,0,0,'last','Mustafa');
 insert into Patient(THC, Country_ID,State_ID,ZIP_ID,WStatus_ID,Occup_ID,Surname,First_name) values ('c', 0,0,0,0,0,'name','Endalk');
+
+
+insert into Patient(THC, Country_ID,State_ID,ZIP_ID,WStatus_ID,Occup_ID,Surname,First_name) values ('abc', 0,0,0,0,0,'Min','Keon');
+
+
+
+
+SET FOREIGN_KEY_CHECKS=0;
+drop table Patient;
+SET FOREIGN_KEY_CHECKS=1;
+
+
+CREATE TABLE Patient(
+	THC varchar(6) not null,
+	Current_Date DATE not null,
+	First_name VARCHAR(15) not null,
+	Middle_name VARCHAR(15),
+	Last_name VARCHAR(15) not null,
+	Date_of_Birth DATE not null,
+	Gender VARCHAR(1) not null,
+	Phone INTEGER not null,
+	Email VARCHAR(50),
+	Street_Address VARCHAR(60) not null,
+	City VARCHAR(30) not null,
+	State_ID SMALLINT,
+	ZIP_ID SMALLINT not null,
+	Country_ID SMALLINT not null,
+	Photo VARCHAR(1000),
+	Social_Security_Number VARCHAR(10),
+	Insurnace VARCHAR(10),
+	WStatus_ID SMALLINT not null,
+	Occup_ID SMALLINT not null,
+
+	CONSTRAINT PK_PATIENT PRIMARY KEY (THC),
+	CONSTRAINT FK_PATIENT_REFERENCE_REF_COUN FOREIGN KEY(Country_ID) REFERENCES REF_Country(Country_ID) ON UPDATE CASCADE
+	ON DELETE CASCADE,
+	CONSTRAINT FK_PATIENT_REFERENCE_REF_STAT FOREIGN KEY(State_ID) REFERENCES REF_State(State_ID) ON UPDATE CASCADE
+	ON DELETE CASCADE,
+	CONSTRAINT FK_PATIENT_REFERENCE_REF_ZIP FOREIGN KEY(ZIP_ID) REFERENCES REF_Zip(ZIP_ID) ON UPDATE CASCADE
+	ON DELETE CASCADE,
+	CONSTRAINT FK_PATIENT_REFERENCE_REF_WORK FOREIGN KEY(WStatus_ID) REFERENCES REF_Works(WStatus_ID) ON UPDATE CASCADE
+	ON DELETE CASCADE,
+	CONSTRAINT FK_PATIENT_REFERENCE_REF_OCCU FOREIGN KEY(Occup_ID) REFERENCES REF_Occupation(Occup_ID) ON UPDATE CASCADE
+	ON DELETE CASCADE
+);
