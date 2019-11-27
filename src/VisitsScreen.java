@@ -51,6 +51,8 @@ public class VisitsScreen extends JFrame {
 		JButton btnAddNewVisit = new JButton("Add New Visit");
 		btnAddNewVisit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				AddVisit nw = new AddVisit();
+				nw.AddVist();
 			}
 		});
 		
