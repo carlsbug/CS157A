@@ -40,7 +40,7 @@ public class VisitsScreen extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public VisitsScreen() {
+	public VisitsScreen () {
 		setTitle("Visitors");
 		setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 		setBounds(100, 100, 450, 300);

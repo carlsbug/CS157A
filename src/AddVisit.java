@@ -39,6 +39,7 @@ public class AddVisit extends JFrame {
 	public static void AddVist() {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
+				
 				try {
 					AddVisit frame = new AddVisit();
 					frame.setVisible(true);
