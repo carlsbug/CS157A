@@ -30,7 +30,7 @@ public class ViewPatient {
 			public ViewPatient() {
 				JFrame guiFrame = new JFrame();
 		//make sure the program exits when the frame closes
-				guiFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+				guiFrame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 				guiFrame.setTitle("View/Edit patient");
 				guiFrame.setSize(700, 200);
 		//This will center the JFrame in the middle of the screen

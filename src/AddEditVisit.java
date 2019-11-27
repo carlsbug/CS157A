@@ -37,7 +37,7 @@ public class AddEditVisit {
 		    	    		//Uncomment below if you are using Oracle, provide your username and password
 							//("jdbc:oracle:thin:@10.250.9.170:1521:XE","username", "password");
 							//Uncomment below if you are using MySQL, provide name of your database, username and password
-							("jdbc:mysql://localhost:3306/project","keon", "7eu6Y.La=VJh"); 
+							("jdbc:mysql://localhost:3306/test","root", "Rounding!2"); 
 
 
 		    // Create a Statement
