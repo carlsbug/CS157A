@@ -1,0 +1,4 @@
+insert into REF_State values (0,'CALIFORNIA');
+insert into REF_State values (1,'ALABAMA');
+insert into REF_State values (2,'ALASKA');
+insert into REF_State values (3,'ARIZONA');

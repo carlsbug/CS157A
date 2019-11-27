@@ -1,0 +1,4 @@
+insert into REF_Country values (0,'ETHIOPHIA');
+insert into REF_Country values (1,'PAKISTAN');
+insert into REF_Country values (2,'SOUTH KOREA');
+insert into REF_Country values (3,'United States');

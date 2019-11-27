@@ -1,0 +1,2 @@
+insert into REF_Works values (0,'ACTIVE');
+insert into REF_Works values (1,'NOT ACTIVE');
