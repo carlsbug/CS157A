@@ -14,7 +14,7 @@ public static void NewScreen4() {
 EventQueue.invokeLater(new Runnable()
 {
 @Override
-public void run()
+public void run() 
 {
 new AddEditVisit();
 }

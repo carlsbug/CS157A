@@ -24,7 +24,7 @@ public class VisitsScreen extends JFrame {
 	/**
 	 * Launch the application. 
 	 */
-	public static void NewScreen1() {
+	public static void NewScreen1 () {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -42,7 +42,7 @@ public class VisitsScreen extends JFrame {
 	 */
 	public VisitsScreen() {
 		setTitle("Visitors");
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));

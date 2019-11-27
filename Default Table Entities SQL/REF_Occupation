@@ -1,0 +1,13 @@
+SET SQL_SAFE_UPDATES = 0;
+delete from REF_Occupation where Name = 'DOCTOR';
+SET SQL_SAFE_UPDATES = 1;
+
+
+
+
+
+insert into REF_Occupation values (0,'DOCTOR');
+insert into REF_Occupation values (1,'PROFESSIONAL NETFLIX WATCHER');
+insert into REF_Occupation values (2,'LUXURY BED TESTER');
+insert into REF_Occupation values (3,'SOFTWARE DEVELOPER');
+insert into REF_Occupation values (4,'STATISTICIAN');

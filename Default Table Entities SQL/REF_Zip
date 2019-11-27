@@ -1,0 +1,4 @@
+insert into REF_Zip values (0,'95112');
+insert into REF_Zip values (1,'35007');
+insert into REF_Zip values (2,'99501');
+insert into REF_Zip values (3,'85006');
