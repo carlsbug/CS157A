@@ -3,138 +3,74 @@ import java.sql.*;
 import BackEnd.SQLUtil;
 
 public class PatientTester {
-	public static String USERNAME = new String("keon");
-	public static String PASSWORD = new String("7eu6Y.La=VJh");
-
-	//	public static String DB_URL = new String("jdbc:mysql://localhost/test?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC");
-	public static String DB_URL = new String("jdbc:mysql://localhost:3306/test");
-	public static String JDBC_DRIVER = new String("com.mysql.cj.jdbc.Driver");
+//	public static String USERNAME = new String("keon");
+//	public static String PASSWORD = new String("7eu6Y.La=VJh");
+//
+//	//	public static String DB_URL = new String("jdbc:mysql://localhost/test?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC");
+//	public static String DB_URL = new String("jdbc:mysql://localhost:3306/test");
+//	public static String JDBC_DRIVER = new String("com.mysql.cj.jdbc.Driver");
 	public static void main(String args[]) throws SQLException {
 		
-///* Bring patient */		
+/* Bring patient */		
 		// Connect to the database
-//		Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/project", "keon", "7eu6Y.La=VJh");
-//
-//		// Create a Statement
-//		Statement stmt = conn.createStatement();
-//
-//		// Select the table names from the user_tables
-//		ResultSet rset = stmt.executeQuery("SELECT p.THC, p.CurrentDate, p.First_name, p.Middle_name, p.Last_name, p.Date_of_Birth,\n" + 
-//				"p.Gender, p.Phone, p.Email, p.Street_Address, p.City, s.Name, z.Name, c.Name, p.Photo,\n" + 
-//				"p.Social_Security_Number, p.Insurnace\n" + 
-//				"FROM Patient p, REF_State s, REF_Zip z,REF_Country c;");
-//
-//		// Iterate through the result and print out the table names
-//		String list[][] = new String[100][];
-//		int i = 0;
-//		while (rset.next()) {
-//			String THC = rset.getString(1);
-//			String currentDate = rset.getString(2);
-//			String firstName = rset.getString(3);
-//			String middleName = rset.getString(4);
-//			String lastName = rset.getString(5);
-//			String DOB = rset.getString(6);
-//			String gender = rset.getString(7);
-//			int phone = rset.getInt(8);
-//			String email = rset.getString(9);
-//			String streetAddr = rset.getString(10);
-//			String city = rset.getString(11);
-//			String state = rset.getString(12);
-//			String zip = rset.getString(13);
-//			String country = rset.getString(14);
-//			String photo = rset.getString(15);
-//			String SSN = rset.getString(16);
-//			String insurance = rset.getString(17);
-//			
-////			int d = rset.getInt(5);
-////			int e = rset.getInt(6);
-////			String firstName = rset.getString(7);
-////			String lastName = rset.getString(8);
-////			String SSN = rset.getString(9);
-////			String DOB = rset.getString(10);
-////			String insurance = rset.getString(11);
-////			String Tin_Background = rset.getString(12);
-////			String H_Background = rset.getString(13);
-////			String Tin_WHEN = rset.getString(14);
-////			String H_when = rset.getString(15);
-////			String T_Ind_comments = rset.getString(16);
-////			String H_Ind_comments = rset.getString(17);
-//
-//			
-//			list[i] = new String[] { THC,currentDate, firstName,middleName,
-//					lastName, DOB, gender, Integer.toString(phone), email, streetAddr, city
-//					, state, zip, country, photo, SSN, insurance};
-//			System.out.println(list[i]);
-//	
-//			// list[i] = {};
-//
-//		}
-		
-/* add patient */
-		
-		/*
-		 * 
-		insert into Patient(THC, Country_ID,State_ID,ZIP_ID,WStatus_ID,Occup_ID,Surname,First_name) values ('a', 0,0,0,0,0,'Min','Keon');
-		insert into Patient(THC, Country_ID,State_ID,ZIP_ID,WStatus_ID,Occup_ID,Surname,First_name) values ('b', 0,0,0,0,0,'last','Mustafa');
-		insert into Patient(THC, Country_ID,State_ID,ZIP_ID,WStatus_ID,Occup_ID,Surname,First_name) values ('c', 0,0,0,0,0,'name','Endalk');
+		Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/project", "keon", "7eu6Y.La=VJh");
 
-		 */
-		String newInput = "";
-		String[] InsertRows = {"INSERT INTO Patient(THC, CurrentDate, First_name, Middle_name, Last_name, Date_of_Birth,\n" + 
-				"Gender, Phone, Email, Street_Address, City, State_ID, ZIP_ID, Country_ID , Photo,\n" + 
-				"Social_Security_Number, Insurnace)\n" + 
-				"VALUES(a,a,a,a,a,a,a,a,123,a,(SELECT STATE_ID FROM REF_State WHERE Name = ''), (SELECT ZIP_ID FROM REF_Zip WHERE Name = ''),\n" + 
-				"(SELECT Country_ID FROM REF_Country WHERE Name = ''),a,a,a);"};
-		
-		for (int a=0; a<InsertRows.length; ++a)
-		{
-			System.out.println(InsertRows[a]);
+		// Create a Statement
+		Statement stmt = conn.createStatement();
+
+		// Select the table names from the user_tables
+		ResultSet rset = stmt.executeQuery("SELECT p.THC, p.CurrentDate, p.First_name, p.Middle_name, p.Last_name, p.Date_of_Birth,\n" + 
+				"p.Gender, p.Phone, p.Email, p.Street_Address, p.City, s.Name, z.Name, c.Name, p.Photo,\n" + 
+				"p.Social_Security_Number, p.Insurnace\n" + 
+				"FROM Patient p, REF_State s, REF_Zip z,REF_Country c;");
+
+		// Iterate through the result and print out the table names
+		String list[][] = new String[100][];
+		int i = 0;
+		while (rset.next()) {
+			String THC = rset.getString(1);
+			String currentDate = rset.getString(2);
+			String firstName = rset.getString(3);
+			String middleName = rset.getString(4);
+			String lastName = rset.getString(5);
+			String DOB = rset.getString(6);
+			String gender = rset.getString(7);
+			int phone = rset.getInt(8);
+			String email = rset.getString(9);
+			String streetAddr = rset.getString(10);
+			String city = rset.getString(11);
+			String state = rset.getString(12);
+			String zip = rset.getString(13);
+			String country = rset.getString(14);
+			String photo = rset.getString(15);
+			String SSN = rset.getString(16);
+			String insurance = rset.getString(17);
+			
+//			int d = rset.getInt(5);
+//			int e = rset.getInt(6);
+//			String firstName = rset.getString(7);
+//			String lastName = rset.getString(8);
+//			String SSN = rset.getString(9);
+//			String DOB = rset.getString(10);
+//			String insurance = rset.getString(11);
+//			String Tin_Background = rset.getString(12);
+//			String H_Background = rset.getString(13);
+//			String Tin_WHEN = rset.getString(14);
+//			String H_when = rset.getString(15);
+//			String T_Ind_comments = rset.getString(16);
+//			String H_Ind_comments = rset.getString(17);
+
+			
+			list[i] = new String[] { THC,currentDate, firstName,middleName,
+					lastName, DOB, gender, Integer.toString(phone), email, streetAddr, city
+					, state, zip, country, photo, SSN, insurance};
+			System.out.println(list[i]);
+	
+			// list[i] = {};
+
 		}
-
-
-		try {
-			Class.forName(JDBC_DRIVER);
-			try
-			{
-			          // Get a connection from the connection factory
-				Connection con = DriverManager.getConnection(
-				DB_URL,
-				  //"jdbc:oracle:thin:@dbaprod1:1521:SHR1_PRD",
-				USERNAME, PASSWORD);
 		
-				// Show some database/driver metadata
-				SQLUtil.printDriverInfo(con);
 
-				// Create a Statement object so we can submit SQL statements to the driver
-				Statement stmt = con.createStatement();
-
-				// Submit the statement
-				for (int i=0; i<InsertRows.length; ++i)
-				{
-					System.out.print(InsertRows[i] + "...");
-					int rowsAffected = stmt.executeUpdate(InsertRows[i]);
-					if (rowsAffected == 1)
-						System.out.println("OK");
-				}
-
-				// Close the statement
-				stmt.close();
-
-				// Close the connection
-				con.close();
-			}
-			catch (SQLException e1)
-			{
-	          	 	SQLUtil.printSQLExceptions(e1);		
-	         }
-			
-			
-		} //try for Class.forName(JDBC_DRIVER);
-		catch (ClassNotFoundException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}//catch		
-		
 		
 		
 ///* update */

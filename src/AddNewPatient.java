@@ -32,7 +32,7 @@ public class AddNewPatient extends JFrame {
 	public static String PASSWORD = new String("7eu6Y.La=VJh");
 
 	//	public static String DB_URL = new String("jdbc:mysql://localhost/test?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC");
-	public static String DB_URL = new String("jdbc:mysql://localhost:3306/test");
+	public static String DB_URL = new String("jdbc:mysql://localhost:3306/project");
 	public static String JDBC_DRIVER = new String("com.mysql.cj.jdbc.Driver");
 	private JPanel contentPane;
 	private JTextField textField;
@@ -524,6 +524,14 @@ public class AddNewPatient extends JFrame {
 						"Social_Security_Number, Insurnace)\n" + 
 						"VALUES(a,a,a,a,a,a,a,a,123,a,(SELECT STATE_ID FROM REF_State WHERE Name = ''), (SELECT ZIP_ID FROM REF_Zip WHERE Name = ''),\n" + 
 						"(SELECT Country_ID FROM REF_Country WHERE Name = ''),a,a,a);"};
+				
+				String[] newInsertRows = {"INSERT INTO Patient(THC, CurrentDate, First_name, Middle_name, Last_name, Date_of_Birth,\n" + 
+						"				Gender, Phone, Email, Street_Address, City, State_ID, ZIP_ID, Country_ID , Photo,\n" + 
+						"				Social_Security_Number, Insurnace)\n" + 
+						"				VALUES('abc','2019-11-01','Keon','middle','Min','1993-03-12','F',415999999,'email','street','city',(SELECT STATE_ID FROM REF_State WHERE Name = 'CALIFORNIA'), \n" + 
+						"                (SELECT ZIP_ID FROM REF_Zip WHERE Name = 95112),\n" + 
+						"				(SELECT Country_ID FROM REF_Country WHERE Name = 'ETHIOPHIA'),'Photo','SSN','Insurance');"};
+				
 				
 				for (int a=0; a<InsertRows.length; ++a)
 				{

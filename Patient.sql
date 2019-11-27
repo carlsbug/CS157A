@@ -48,16 +48,16 @@ CREATE TABLE Patient(
 	Insurnace VARCHAR(10),
 
   -- Demographic
-	WStatus_ID SMALLINT not null,
-	Occup_ID SMALLINT not null,
+	WStatus_ID SMALLINT,
+	Occup_ID SMALLINT,
 	Educational_Degree VARCHAR(10),
 	Tin_background CHAR(1),
 	H_background CHAR(1),
 	Tin_When Date,
-	H_When Date
+	H_When Date,
 	-- T_lnd_comments VARCHAR(10000),
 	-- H_lnd_comments VARCHAR(10000)
-	-- 
+	--
 	-- Tinnitus_Onset VARCHAR(10),
 	-- Tinnitus_Etiology VARCHAR(10),
 	-- Hyperacusis_Onset VARCHAR(10),
