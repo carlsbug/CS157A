@@ -45,6 +45,7 @@ public class AddNewPatient extends JFrame {
 	private JLabel lblInsurance;
 	private JButton btnAdd;
 	private Patient[] Patients = new Patient[100];
+	private String[] newPatient = new String[16];
 	int i = 0;
 	
 	public boolean flagCheckString(String s) {
@@ -117,6 +118,7 @@ public class AddNewPatient extends JFrame {
 		b.setBackground(Color.BLUE);
 		b.setBounds(244, 550, 79, 40);
 		contentPane.add(b);
+		
 
 		b.addActionListener(new ActionListener(){
 			   public void actionPerformed(ActionEvent e){
