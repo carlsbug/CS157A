@@ -55,6 +55,17 @@ public class VisitsScreen extends JFrame {
 		});
 		
 		JButton btnVieweditVisits = new JButton("View/Edit Visits");
+		btnVieweditVisits.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				
+				AddEditVisit nw= new AddEditVisit();
+				nw.NewScreen4();
+			
+				
+				
+			}
+		});
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
 		gl_contentPane.setHorizontalGroup(
 			gl_contentPane.createParallelGroup(Alignment.LEADING)
