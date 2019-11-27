@@ -206,7 +206,7 @@ public class AddNewPatient extends JFrame {
 									"                (SELECT ZIP_ID FROM REF_Zip WHERE Name = "+Integer.parseInt(zipCode)+"),\n" + 
 									"				(SELECT Country_ID FROM REF_Country WHERE Name = '"+country+"'),'"+photo+"','"+SSN+"','"+insurance+"');"};
 							
-							
+							 
 							for (int a=0; a<InsertRows.length; ++a)
 							{
 								System.out.println(InsertRows[a]);
