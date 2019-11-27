@@ -29,7 +29,7 @@ public class AddNewPatient extends JFrame {
 	
 	
 	public static String USERNAME = new String("root");
-	public static String PASSWORD = new String("Roosted2!");
+	public static String PASSWORD = new String("Roosted!2");
 
 	//	public static String DB_URL = new String("jdbc:mysql://localhost/test?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC");
 	public static String DB_URL = new String("jdbc:mysql://localhost:3306/test");
