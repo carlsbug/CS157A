@@ -20,11 +20,11 @@ public class VisitsScreen extends JFrame {
 //	public static String DB_URL = new String("jdbc:mysql://localhost/test?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC");
 //	public static String JDBC_DRIVER = new String("com.mysql.jdbc.Driver");
 	private JPanel contentPane;
-
+   
 	/**
-	 * Launch the application.
+	 * Launch the application. 
 	 */
-	public static void NewScreen1() {
+	public static void NewScreen1 () {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -55,6 +55,17 @@ public class VisitsScreen extends JFrame {
 		});
 		
 		JButton btnVieweditVisits = new JButton("View/Edit Visits");
+		btnVieweditVisits.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				
+				AddEditVisit nw= new AddEditVisit();
+				nw.NewScreen4();
+			
+				
+				
+			}
+		});
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
 		gl_contentPane.setHorizontalGroup(
 			gl_contentPane.createParallelGroup(Alignment.LEADING)
