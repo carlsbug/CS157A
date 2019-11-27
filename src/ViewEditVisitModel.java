@@ -2,7 +2,7 @@ import javax.swing.table.AbstractTableModel;
 
 class ViewEditVisitModel extends AbstractTableModel{
 //Two arrays used for the table data
-String[] columnNames = {"First Name", "Last Name", "State"
+String[] columnNames  = {"First Name", "Last Name", "State"
 , "Gender", "City", "Age", "Date added" };
 Object[][] data = {
 {"Endalk ", "Sisay", "California", "Male","San Jose" , "60", "11/11/19" },

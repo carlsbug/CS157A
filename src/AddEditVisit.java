@@ -38,7 +38,7 @@ table.setAutoCreateRowSorter(true);
 //Change the colour of the table - yellow for gridlines
 //blue for background
 table.setGridColor(Color.YELLOW);
-table.setBackground(Color.CYAN);
+table.setBackground(Color.CYAN); //color 
 //String array to populate the combobox options
 
 //Set the default editor for the states column to be the combobox

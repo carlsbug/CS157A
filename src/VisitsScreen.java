@@ -20,9 +20,9 @@ public class VisitsScreen extends JFrame {
 //	public static String DB_URL = new String("jdbc:mysql://localhost/test?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC");
 //	public static String JDBC_DRIVER = new String("com.mysql.jdbc.Driver");
 	private JPanel contentPane;
-
+   
 	/**
-	 * Launch the application.
+	 * Launch the application. 
 	 */
 	public static void NewScreen1() {
 		EventQueue.invokeLater(new Runnable() {
