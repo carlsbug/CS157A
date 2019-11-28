@@ -1,8 +1,12 @@
+package ForPatient;
+
 import java.sql.*;
-import BackEnd.SQLUtil;
 
 
-public class add {
+import BackEndOldVersion.SQLUtil;
+
+
+public class addPatientTester {
 	public static String USERNAME = new String("keon");
 	public static String PASSWORD = new String("7eu6Y.La=VJh");
 
@@ -20,8 +24,23 @@ public class add {
 		insert into Patient(THC, Country_ID,State_ID,ZIP_ID,WStatus_ID,Occup_ID,Surname,First_name) values ('a', 0,0,0,0,0,'Min','Keon');
 		insert into Patient(THC, Country_ID,State_ID,ZIP_ID,WStatus_ID,Occup_ID,Surname,First_name) values ('b', 0,0,0,0,0,'last','Mustafa');
 		insert into Patient(THC, Country_ID,State_ID,ZIP_ID,WStatus_ID,Occup_ID,Surname,First_name) values ('c', 0,0,0,0,0,'name','Endalk');
-
 		 */
+		Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/project", "keon", "7eu6Y.La=VJh");
+		// Create a Statement
+		Statement stmt = conn.createStatement();
+		//get number of patient enrolled in the database
+		int numberRow = 0;
+		try {
+
+			ResultSet cset = stmt.executeQuery("SELECT COUNT(*) FROM Patient;");
+			while (cset.next()) {
+				numberRow = cset.getInt("count(*)");
+			}
+		} catch (Exception ex) {
+			System.out.println(ex.getMessage());
+		}
+		
+		
 		String newInput = "";
 		String[] InsertRows = {"INSERT INTO Patient(THC, CurrentDate, First_name, Middle_name, Last_name, Date_of_Birth,\n" + 
 				"				Gender, Phone, Email, Street_Address, City, State_ID, ZIP_ID, Country_ID , Photo,\n" + 
@@ -50,7 +69,7 @@ public class add {
 				SQLUtil.printDriverInfo(con);
 
 				// Create a Statement object so we can submit SQL statements to the driver
-				Statement stmt = con.createStatement();
+//				 stmt = con.createStatement();
 
 				// Submit the statement
 				for (int i=0; i<InsertRows.length; ++i)

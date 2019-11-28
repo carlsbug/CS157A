@@ -64,10 +64,11 @@ public class Updater {
 
 		}
 /* Update first patient whose id is abc*/
-		String sql = "UPDATE Patient"
-				+ " SET Country_ID=?, State_ID=? ,ZIP_ID =?, WStatus_ID=?, Occup_ID=?, Surname=?,First_name=?,SSN=?,DOB=?,"
-				+ "Insurance =?,  Tin_Background=?,H_Background=?,Tin_WHEN=?,H_when=?,T_Ind_comments=?,H_Ind_comments=?"
-				+ " WHERE THC =?";
+		String sql = "UPDATE Patient p, REF_State s, REF_Zip z,REF_Country c\n" + 
+				"SET p.THC=?, p.CurrentDate=?, p.First_name=?, p.Middle_name=?, p.Last_name=?, p.Date_of_Birth=?,\n" + 
+				"p.Gender=?, p.Phone=?, p.Email=?, p.Street_Address=?, p.City=?, s.Name=?, z.Name=?, c.Name=?, p.Photo=?,\n" + 
+				"p.Social_Security_Number=?, p.Insurnace=?\n" + 
+				"WHERE THC =?";
 
 		PreparedStatement preparedStatement = conn.prepareStatement(sql);
 		preparedStatement.setInt(1, Integer.parseInt(list[0][1]));
