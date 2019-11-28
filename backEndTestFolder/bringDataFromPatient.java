@@ -1,9 +1,7 @@
-package ForPatient;
 
 import java.sql.*;
 
 
-import BackEndOldVersion.SQLUtil;
 
 import java.util.Arrays;
 public class bringDataFromPatient {
@@ -23,11 +21,15 @@ public class bringDataFromPatient {
 			ResultSet cset = stmt.executeQuery("SELECT COUNT(*) FROM Patient;");
 			while (cset.next()) {
 				numberRow = cset.getInt("count(*)");
+				System.out.println("numbsasdasdasdasdasdasder:"+ numberRow);
 			}
 		} catch (Exception ex) {
 			System.out.println(ex.getMessage());
 		}
 
+	
+		System.out.println("numbsasdasdasdasdasdasder:"+ numberRow);
+		
 		ResultSet rset = stmt.executeQuery(
 				"SELECT p.THC, p.CurrentDate, p.First_name, p.Middle_name, p.Last_name, p.Date_of_Birth,\n"
 						+ "p.Gender, p.Phone, p.Email, p.Street_Address, p.City, s.Name, z.Name, c.Name, p.Photo,\n"
@@ -76,8 +78,19 @@ public class bringDataFromPatient {
 
 		}
 		
+		
+		
+//		
 		for(int j = 0; j< numberRow;j++)
-		System.out.println(Arrays.toString(list[j]));
+		{
+			System.out.println("asdasdasdasdasdasd:"+ numberRow);
+			System.out.println(Arrays.toString(list[j]));
+		}
+		for(int j = 0; j< numberRow;j++)
+		{
+			System.out.println("asdasdasdasdasdasd:"+ numberRow);
+			System.out.println(Arrays.toString(list[j]));
+		}
 
 
 	}

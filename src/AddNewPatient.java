@@ -39,9 +39,8 @@ public class AddNewPatient extends JFrame {
 	public static String JDBC_DRIVER = new String("com.mysql.cj.jdbc.Driver");
 	private JPanel contentPane;
 
-	Date date = new Date();
-	SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
-	private String CDate = (formatter.format(date));
+
+	private String CDate;
 	
 	private JTextField textField;
 	private JTextField textField_1;
@@ -131,18 +130,20 @@ public class AddNewPatient extends JFrame {
 
 //updator to get current THC
  
- Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/project", "keon", "7eu6Y.La=VJh");
- Statement stmt = conn.createStatement();
-	int numberRow = 0;
-	try {
-
-		ResultSet cset = stmt.executeQuery("SELECT COUNT(*) FROM Patient;");
-		while (cset.next()) {
-			numberRow = cset.getInt("count(*)");
+	 Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/project", "keon", "7eu6Y.La=VJh");
+	 Statement stmt = conn.createStatement();
+		int numberRow = 0;
+		try {
+	
+			ResultSet cset = stmt.executeQuery("SELECT COUNT(*) FROM Patient;");
+			while (cset.next()) {
+				numberRow = cset.getInt("count(*)");
+				System.out.println("number: "+ numberRow);
+			}
+		} catch (Exception ex) {
+			System.out.println(ex.getMessage());
 		}
-	} catch (Exception ex) {
-		System.out.println(ex.getMessage());
-	}
+
 	final String THC = Integer.toString(numberRow);
 	
 		setBackground(Color.WHITE);
@@ -161,6 +162,10 @@ public class AddNewPatient extends JFrame {
 		b.setBackground(Color.BLUE);
 		b.setBounds(244, 550, 79, 40);
 		contentPane.add(b);
+		
+		Date date = new Date();
+		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+		CDate = (formatter.format(date));
 		
 
 		b.addActionListener(new ActionListener(){
@@ -182,7 +187,7 @@ public class AddNewPatient extends JFrame {
 				   String SSN = "NULL";
 				   String insurance = "NULL";
 		
-				   System.out.println("HAHAHAHA1:"+zipCode);
+
 				   Patient p = new Patient();
 //				   
 				  if (flagCheckString(textField.getText()) == true && 
