@@ -32,7 +32,7 @@ public class AddVisit extends JFrame {
 	private JTextField textField_5;
 	private JTextField textField_6;
 	private JTextField textField_7;
-	private JLabel lblNewLabel;
+	private JLabel lblNewLabel; 
 	private JLabel lblLast;
 	private JLabel lblStreetAddress;
 	private JLabel lblCity;
