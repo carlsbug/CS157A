@@ -4,9 +4,6 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-
-import BackEndOldVersion.SQLUtil;
-
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.JTextField;
@@ -15,10 +12,6 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import java.awt.Color;
 import java.awt.event.ActionListener;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.Statement;
 import java.awt.event.ActionEvent;
 
 public class AddVisit extends JFrame {
@@ -32,7 +25,7 @@ public class AddVisit extends JFrame {
 	private JTextField textField_5;
 	private JTextField textField_6;
 	private JTextField textField_7;
-	private JLabel lblNewLabel; 
+	private JLabel lblNewLabel;
 	private JLabel lblLast;
 	private JLabel lblStreetAddress;
 	private JLabel lblCity;
@@ -43,40 +36,6 @@ public class AddVisit extends JFrame {
 	/**
 	 * Launch the application.
 	 */
-	
-	
-	public boolean flagCheckString(String s) {
-		boolean flag = true;
-		char[] c = s.toCharArray();
-		
-		for (int i = 0; i < c.length; i++) {
-			if (Character.isDigit(c[i])) {
-				flag = false;
-				return flag;
-			}
-		}
-		return flag;
-		
-	}
-	
-	public boolean flagCheckInt(String s) {
-		boolean flag = true;
-		char[] c = s.toCharArray();
-		
-		for (int i = 0; i < c.length; i++) {
-			if (Character.isDigit(c[i]) == false) {
-				flag = false;
-				return flag;
-			}
-		}
-		return flag;
-		
-	}
-
-	
-	
-	
-	
 	public static void AddVist() {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -126,111 +85,7 @@ public class AddVisit extends JFrame {
 		JButton btnNewButton = new JButton("Submit");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
-				   String THC = "NULL";
-				   String fName = "NULL";
-				   String lName = "NULL";
-				   String street = "NULL";
-				   String city = "NULL";
-				   String state = "NULL";
-				   String zipCode = "NULL";
-				   String SSN = "NULL";
-
-
-				   Patient p = new Patient();
-//				   
-				  if (flagCheckString(textField.getText()) == true && 
-				  	  flagCheckString(textField_1.getText()) == true &&
-					  flagCheckString(textField_2.getText()) == true &&
-					  flagCheckInt(textField_3.getText()) == true &&
-					  flagCheckString(textField_4.getText()) == true &&
-					  flagCheckInt(textField_5.getText()) == true && //TextField 6 & 7 can be mix of digits and strings
-					  flagCheckString(textField_6.getText()) == true &&
-					  flagCheckString(textField_7.getText()) == true)
-				
-//					  
-					 
-				  {
-					   THC = textField.getText();
-				       fName = textField_1.getText();
-				       lName = textField_2.getText();
-				       street = textField_3.getText();
-				       city = textField_4.getText();
-				       state = textField_5.getText();
-				       zipCode = textField_6.getText();
-				       SSN = textField_6.getText();
-				   
-
-				       System.out.println("HAHAHAHA2:"+zipCode);
-				       
-				       if (!fName.equals("") && !lName.equals("")
-				    		   && !street.equals("") 
-				    		   && !city.equals("")&& !state.equals("") && !zipCode.equals("")  && !SSN.equals(""))
-				       {
-							String[] InsertRows = {"INSERT INTO Patient(THC, CurrentDate, First_name, Middle_name, Last_name, Date_of_Birth," + 
-									"				Gender, Phone, Email, Street_Address, City, State_ID, ZIP_ID, Country_ID , Photo," + 
-									"				Social_Security_Number, Insurnace)" + 
-									"				VALUES('"+ THC +"', "+ CDate +", '"+fName+"', '"+mName+"','"+lName+"','"+dOB+"',"
-											+ "'"+gender+"',"+phone+", '"+email+"', '"+street+"','"+city+"',"
-									+"(SELECT STATE_ID FROM REF_State WHERE Name = '"+ state+"')"+","
-									 + "(SELECT ZIP_ID FROM REF_Zip WHERE Name = "+(zipCode)+")," + 
-									"(SELECT Country_ID FROM REF_Country WHERE Name = '"+country+"'),'"+photo+"','"+SSN+"','"+insurance+"');"};
-							  System.out.println("HAHAHAHA3:"+zipCode);
-							
-							for (int a=0; a<InsertRows.length; ++a)
-							{
-								System.out.println(InsertRows[a]);
-							}
-
-
-							try {
-								Class.forName(JDBC_DRIVER);
-								try
-								{
-								          // Get a connection from the connection factory
-									Connection con = DriverManager.getConnection(
-									DB_URL,
-									  //"jdbc:oracle:thin:@dbaprod1:1521:SHR1_PRD",
-									USERNAME, PASSWORD);
-							
-									// Show some database/driver metadata
-									SQLUtil.printDriverInfo(con);
-
-									// Create a Statement object so we can submit SQL statements to the driver
-									Statement stmt = con.createStatement();
-
-									// Submit the statement
-									for (int i=0; i<InsertRows.length; ++i)
-									{
-										System.out.print(InsertRows[i] + "...");
-										int rowsAffected = stmt.executeUpdate(InsertRows[i]);
-										if (rowsAffected == 1)
-											System.out.println("OK");
-									}
-
-									// Close the statement
-									stmt.close();
-
-									// Close the connection
-									con.close();
-								}
-								catch (SQLException e1)
-								{
-						          	 	SQLUtil.printSQLExceptions(e1);		
-						         }
-							
-							} //try for Class.forName(JDBC_DRIVER);
-							catch (ClassNotFoundException e1) {
-								// TODO Auto-generated catch block
-								e1.printStackTrace();
-							}//catch		
-							
-				 
-				    	   
-				    	   
-				    	   
-				       }}}
-				
+			}
 		});
 		btnNewButton.setForeground(Color.RED);
 		

@@ -1,21 +1,36 @@
-insert into Patient(THC, Country_ID,State_ID,ZIP_ID,WStatus_ID,Occup_ID,Surname,First_name) values ('a', 0,0,0,0,0,'Min','Keon');
-insert into Patient(THC, Country_ID,State_ID,ZIP_ID,WStatus_ID,Occup_ID,Surname,First_name) values ('b', 0,0,0,0,0,'last','Mustafa');
-insert into Patient(THC, Country_ID,State_ID,ZIP_ID,WStatus_ID,Occup_ID,Surname,First_name) values ('c', 0,0,0,0,0,'name','Endalk');
+CREATE TABLE REF_Occupation(
+	Occup_ID SMALLINT not null,
+	Name VARCHAR(25),
+	PRIMARY KEY(Occup_ID)
+);
 
+CREATE TABLE REF_Works(
+	WStatus_ID SMALLINT not null,
+	Name VARCHAR(25),
+	PRIMARY KEY(WStatus_ID)
+);
 
-insert into Patient(THC, Country_ID,State_ID,ZIP_ID,WStatus_ID,Occup_ID,Surname,First_name) values ('abc', 0,0,0,0,0,'Min','Keon');
+CREATE TABLE REF_State(
+	State_ID SMALLINT  not null,
+	Name VARCHAR(25),
+	PRIMARY KEY(State_ID)
+);
 
+CREATE TABLE REF_Country(
+	Country_ID SMALLINT  not null,
+	Name VARCHAR(25),
+	PRIMARY KEY(Country_ID)
+);
 
-
-
-SET FOREIGN_KEY_CHECKS=0;
-drop table Patient;
-SET FOREIGN_KEY_CHECKS=1;
-
+CREATE TABLE REF_Zip(
+	ZIP_ID SMALLINT not null,
+	Name VARCHAR(25),
+	PRIMARY KEY(ZIP_ID)
+);
 
 CREATE TABLE Patient(
 	THC varchar(6) not null,
-	Current_Date DATE not null,
+	CurrentDate DATE,
 	First_name VARCHAR(15) not null,
 	Middle_name VARCHAR(15),
 	Last_name VARCHAR(15) not null,
@@ -31,8 +46,23 @@ CREATE TABLE Patient(
 	Photo VARCHAR(1000),
 	Social_Security_Number VARCHAR(10),
 	Insurnace VARCHAR(10),
+
+  -- Demographic
 	WStatus_ID SMALLINT not null,
 	Occup_ID SMALLINT not null,
+	Educational_Degree VARCHAR(10),
+	Tin_background CHAR(1),
+	H_background CHAR(1),
+	Tin_When Date,
+	H_When Date
+	-- T_lnd_comments VARCHAR(10000),
+	-- H_lnd_comments VARCHAR(10000)
+	-- 
+	-- Tinnitus_Onset VARCHAR(10),
+	-- Tinnitus_Etiology VARCHAR(10),
+	-- Hyperacusis_Onset VARCHAR(10),
+	-- Hyperacusis_Etiology VARCHAR(10),
+
 
 	CONSTRAINT PK_PATIENT PRIMARY KEY (THC),
 	CONSTRAINT FK_PATIENT_REFERENCE_REF_COUN FOREIGN KEY(Country_ID) REFERENCES REF_Country(Country_ID) ON UPDATE CASCADE
@@ -44,5 +74,19 @@ CREATE TABLE Patient(
 	CONSTRAINT FK_PATIENT_REFERENCE_REF_WORK FOREIGN KEY(WStatus_ID) REFERENCES REF_Works(WStatus_ID) ON UPDATE CASCADE
 	ON DELETE CASCADE,
 	CONSTRAINT FK_PATIENT_REFERENCE_REF_OCCU FOREIGN KEY(Occup_ID) REFERENCES REF_Occupation(Occup_ID) ON UPDATE CASCADE
+	ON DELETE CASCADE
+);
+
+
+
+CREATE TABLE Visit(
+	Visit_ID INTEGER not null,
+	THC VARCHAR(1) not null,
+	Visit_nr SMALLINT not null,
+	Date DATETIME not null,
+	Comments VARCHAR(150),
+
+	CONSTRAINT PK_VISIT PRIMARY KEY (Visit_ID),
+	CONSTRAINT FK_VISIT_REFERENCE_PATIENT FOREIGN KEY(THC) REFERENCES Patient(THC) ON UPDATE CASCADE
 	ON DELETE CASCADE
 );

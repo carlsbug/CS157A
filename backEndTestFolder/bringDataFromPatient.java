@@ -14,6 +14,9 @@ public class bringDataFromPatient {
 		// Create a Statement
 		Statement stmt = conn.createStatement();
 
+		
+
+		
 		// Select the table names from the user_tables
 		int numberRow = 0;
 		try {
@@ -21,14 +24,14 @@ public class bringDataFromPatient {
 			ResultSet cset = stmt.executeQuery("SELECT COUNT(*) FROM Patient;");
 			while (cset.next()) {
 				numberRow = cset.getInt("count(*)");
-				System.out.println("numbsasdasdasdasdasdasder:"+ numberRow);
+	
 			}
 		} catch (Exception ex) {
 			System.out.println(ex.getMessage());
 		}
 
 	
-		System.out.println("numbsasdasdasdasdasdasder:"+ numberRow);
+
 		
 		ResultSet rset = stmt.executeQuery(
 				"SELECT p.THC, p.CurrentDate, p.First_name, p.Middle_name, p.Last_name, p.Date_of_Birth,\n"
@@ -83,14 +86,10 @@ public class bringDataFromPatient {
 //		
 		for(int j = 0; j< numberRow;j++)
 		{
-			System.out.println("asdasdasdasdasdasd:"+ numberRow);
+			
 			System.out.println(Arrays.toString(list[j]));
 		}
-		for(int j = 0; j< numberRow;j++)
-		{
-			System.out.println("asdasdasdasdasdasd:"+ numberRow);
-			System.out.println(Arrays.toString(list[j]));
-		}
+
 
 
 	}
