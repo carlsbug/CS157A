@@ -56,16 +56,28 @@ public class PatientPanel extends JFrame {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				AddNewPatient nw = new AddNewPatient();
+				AddNewPatient nw = null;
+				try {
+					nw = new AddNewPatient();
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 				nw.NewScreen();
 			}
 		});
 		
-		JButton btnViewEditPatients = new JButton("View/ Edit Patients ");
+		JButton btnViewEditPatients = new JButton("View/ Edit Patients");
 		btnViewEditPatients.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				ViewPatient nw= new ViewPatient();
-				nw.ViewPatient();
+				ViewPatient nw = null;
+				nw = new ViewPatient();
+				try {
+					nw.ViewPatient();
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 				
 			
 			}

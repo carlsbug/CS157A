@@ -8,6 +8,11 @@ import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.awt.event.ActionEvent;
 import java.awt.Window.Type;
 import javax.swing.JTextField;
@@ -51,23 +56,92 @@ public class VisitsScreen extends JFrame {
 		JButton btnAddNewVisit = new JButton("Add New Visit");
 		btnAddNewVisit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				AddVisit nw = new AddVisit();
-				nw.AddVist();
+				String tableName = "Visit";
+				/* Get number of tuples and MAX THC */
+				Connection conn = null;
+				try {
+					conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/test", "keon", "7eu6Y.La=VJh");
+				} catch (SQLException e2) {
+					// TODO Auto-generated catch block
+					e2.printStackTrace();
+				} // Connect
+				// //
+				// database
+				Statement tempStmt = null;
+				try {
+					tempStmt = conn.createStatement();
+				} catch (SQLException e2) {
+					// TODO Auto-generated catch block
+					e2.printStackTrace();
+				}// Create a Statement
+				
+				int numberRow = 0; // get number of tuples enrolled in a table
+				try {
+					ResultSet cset = tempStmt.executeQuery("SELECT COUNT(*) FROM " + tableName + ";");
+					while (cset.next()) {
+						numberRow = cset.getInt("count(*)");
+					}
+				} catch (Exception ex) {
+					System.out.println(ex.getMessage());
+				}
+				//	System.out.println("We have " + numberRow+ " much patients");
+				int VisitIDtemp = 0;
+				if (numberRow == 0) {
+					VisitIDtemp = 0;
+				} else {
+					int temp = 0;
+					try {
+						ResultSet cset = tempStmt.executeQuery("SELECT MAX(THC) FROM " + tableName + ";");
+						while (cset.next()) {
+							temp = cset.getInt("MAX(THC)");
+						}
+					} catch (Exception ex) {
+						System.out.println(ex.getMessage());
+					}
+					//		System.out.println("the number is " + temp);
+					VisitIDtemp = temp + 1;
+				}
+				final int VisitId = VisitIDtemp;
+				
+				AddVisit nw = null;
+				try {
+					nw = new AddVisit(VisitId,numberRow);
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				nw.AddVist(VisitId,numberRow);
 			}
 		});
 		
 		JButton btnVieweditVisits = new JButton("View/Edit Visits");
 		btnVieweditVisits.addActionListener(new ActionListener() {
+//			public void actionPerformed(ActionEvent e) {
+//				AddEditVisit nw = null;
+//				try {
+//					nw = new AddEditVisit();
+//					
+//				} catch (SQLException e2) {
+//					// TODO Auto-generated catch block
+//					e2.printStackTrace();
+//				}
+////				nw.NewScreen();			
+//			}
+//		});
 			public void actionPerformed(ActionEvent e) {
+				AddEditVisit nw = null;
+				nw = new AddEditVisit();
+				try {
+					nw.AddEditVisit();
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 				
-				
-				AddEditVisit nw= new AddEditVisit();
-				nw.NewScreen4();
 			
-				
-				
 			}
 		});
+		
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
 		gl_contentPane.setHorizontalGroup(
 			gl_contentPane.createParallelGroup(Alignment.LEADING)
